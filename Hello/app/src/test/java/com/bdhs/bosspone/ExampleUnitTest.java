@@ -1,4 +1,4 @@
-package com.yongning.hello;
+package com.bdhs.bosspone;
 
 import org.junit.Test;
 

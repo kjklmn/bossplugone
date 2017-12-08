@@ -1,4 +1,4 @@
-package com.yongning.hello;
+package com.bdhs.bosspone;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

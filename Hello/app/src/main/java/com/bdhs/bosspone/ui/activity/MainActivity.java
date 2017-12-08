@@ -1,4 +1,4 @@
-package com.yongning.hello;
+package com.bdhs.bosspone.ui.activity;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -9,10 +9,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.yongning.hello.fragment.home_fragment;
-import com.yongning.hello.fragment.message_fragment;
-import com.yongning.hello.fragment.person_fragment;
-import com.yongning.hello.fragment.pond_fragment;
+import com.bdhs.bosspone.R;
+import com.bdhs.bosspone.ui.fragment.home_fragment;
+import com.bdhs.bosspone.ui.fragment.message_fragment;
+import com.bdhs.bosspone.ui.fragment.person_fragment;
+import com.bdhs.bosspone.ui.fragment.pond_fragment;
 
 import java.util.ArrayList;
 import java.util.List;

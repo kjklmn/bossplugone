@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yongning.hello">
+    package="com.bdhs.bosspone">
 
     <application
         android:allowBackup="true"
@@ -16,7 +16,7 @@
         <meta-data
             android:name="com.qihoo360.plugin.version.ver"
             android:value="100"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

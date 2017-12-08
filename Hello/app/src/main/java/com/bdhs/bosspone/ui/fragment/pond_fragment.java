@@ -1,4 +1,4 @@
-package com.yongning.hello.fragment;
+package com.bdhs.bosspone.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,20 +7,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yongning.hello.R;
+import com.bdhs.bosspone.R;
 
 /**
  * Created by 14487 on 2017/9/17.
  */
 
-public class message_fragment extends Fragment {
+public class pond_fragment extends Fragment {
 
     private View ContentView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ContentView = inflater.inflate(R.layout.message_layout_view,container,false);
+        ContentView = inflater.inflate(R.layout.pond_layout_view,container,false);
         return ContentView;
     }
 }
