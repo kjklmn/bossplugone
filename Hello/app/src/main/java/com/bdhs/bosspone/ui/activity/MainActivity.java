@@ -23,9 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity {
 
     @BindView(R.id.View_Pager)
     android.support.v4.view.ViewPager View_Pager;
@@ -50,14 +49,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private List<Fragment> fragments;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
-        setCustomActionBar();
-        initView();
-        initEvent();
-        SetSelect(0);   //首启动打开的界面为home_layout_view
+    public void initParms(Bundle parms) {
+
+    }
+
+    @Override
+    public int bindLayout() {
+        return R.layout.activity_main;
     }
 
     private void setCustomActionBar() {
@@ -74,7 +72,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         actionBar.setDisplayShowTitleEnabled(false);
     }
 
-    private void initView() {
+
+    @Override
+    public void initView() {
+        setCustomActionBar();
+
         //新建滑动的4个数据源 fragments数据集中
         fragments = new ArrayList<>();
         Fragment home = new home_fragment();
@@ -123,6 +125,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
+    }
+
+    @Override
+    public void doBusiness() {
+        initEvent();
+        SetSelect(0);   //首启动打开的界面为home_layout_view
+    }
+
+    @Override
+    public void widgetClick(View v) {
+
     }
 
     //添加菜单点击事件
