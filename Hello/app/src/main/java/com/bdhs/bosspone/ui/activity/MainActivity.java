@@ -5,8 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,13 +12,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.bdhs.bosspone.R;
+import com.bdhs.bosspone.base.BaseMvpView;
+import com.bdhs.bosspone.base.BaseResponse;
+import com.bdhs.bosspone.presenter.shopinfo.ShopInfoPresenter;
 import com.bdhs.bosspone.ui.fragment.home_fragment;
 import com.bdhs.bosspone.ui.fragment.message_fragment;
 import com.bdhs.bosspone.ui.fragment.person_fragment;
 import com.bdhs.bosspone.ui.fragment.pond_fragment;
+import com.bdhs.bosspone.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 import butterknife.BindView;
 
@@ -48,6 +51,10 @@ public class MainActivity extends BaseActivity {
     private FragmentPagerAdapter fragmentPagerAdapter;
     private List<Fragment> fragments;
 
+    ShopInfoPresenter shopInfoPresenter;
+    String shop_id = null;
+    String sign = null;
+
     @Override
     public void initParms(Bundle parms) {
 
@@ -62,9 +69,6 @@ public class MainActivity extends BaseActivity {
         ActionBar.LayoutParams lp = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER);
         View mActionBarView = LayoutInflater.from(this).inflate(R.layout.actionbar_layout, null);
         ActionBar actionBar = this.getSupportActionBar();
-        if (actionBar == null) {
-            Log.w("kejian", "actionBar is null");
-        }
         actionBar.setCustomView(mActionBarView, lp);
         actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         actionBar.setDisplayShowCustomEnabled(true);
@@ -131,6 +135,34 @@ public class MainActivity extends BaseActivity {
     public void doBusiness() {
         initEvent();
         SetSelect(0);   //首启动打开的界面为home_layout_view
+        shopInfoPresenter = new ShopInfoPresenter();
+        shopInfoPresenter.attachView(new BaseMvpView() {
+            @Override
+            public void showLoading() {
+                LogUtils.w(TAG,"showLoading");
+            }
+
+            @Override
+            public void hideLoading() {
+                LogUtils.w(TAG,"showLoading");
+            }
+
+            @Override
+            public void showFailedError(Throwable throwable) {
+                LogUtils.w(TAG,"showLoading");
+            }
+
+            @Override
+            public void toMainActivity(BaseResponse baseResponse) {
+                LogUtils.w(TAG,"showLoading");
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+//        shopInfoPresenter.getShopInfo();
     }
 
     @Override
